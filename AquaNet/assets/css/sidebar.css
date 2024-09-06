@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.user {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  text-align: center; /* Center text inside the div */
+}
+
+.user-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid #0e2238;
+}
+
+.user-name {
+  font-size: 16px; /* Adjust font size as needed */
+  color: #fff; /* Set text color */
+}
+
+.dropdown {
+  position: relative; /* Position relative for dropdown positioning */
+  margin-top: 0.5rem; /* Space between image and dropdown */
+}
+
+.dropdown-toggle {
+  background-color: #0e2238; /* Match the sidebar background color */
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.875rem; /* Smaller font size */
+  padding: 0.2rem 0rem; /* Reduced padding */
+  border-radius: 0.25rem; /* Rounded corners */
+  display: inline-flex; /* Adjust display for better alignment */
+  align-items: center; /* Center items vertically */
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+  color: #ffc700; /* Change color on hover/focus */
+}
+
+.dropdown-toggle i {
+  font-size: 1rem; /* Adjust icon size */
+  margin-right: 0.5rem; /* Space between icon and text */
+}
+
+.dropdown-menu {
+  display: none; /* Hide menu initially */
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 50%;
+  transform: translateX(-50%); /* Center the menu */
+  background-color: #0e2238; /* Match the sidebar background color */
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 150px; /* Minimum width for the dropdown menu */
+  width: 100%; /* Make the menu width match the button width */
+  max-width: 250px; /* Adjust to desired max-width */
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block; /* Show menu when toggled */
+}
+
+.dropdown-item {
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.075); /* Highlight item on hover */
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.d-flex {
+  display: flex;
+  align-items: left; /* Vertically center items if needed */
+  justify-content: flex-start; /* Align items to the left */
+}
+
+.toggle-btn {
+  margin-right: 10px; /* Space between the button and the text */
+}
+
+.toggle-btn img {
+  width: 30px; /* Adjust the width of the logo image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.sidebar-logo a {
+  font-size: 1.2rem; /* Adjust font size for the text logo */
+  font-weight: bold; /* Optional: make text bold */
+  color: #ffffff; /* Ensure text color contrasts with background */
+  text-decoration: none; /* Remove underline from link */
+  margin-left: 10px; /* Space between image and text */
+}
+
+.sidebar-logo a:hover {
+  text-decoration: underline;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.main {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+  background-color: #fafbfe;
+}
+
+#sidebar {
+  width: 80px;
+  min-width: 70px;
+  z-index: 1000;
+  transition: all 0.25s ease-in-out;
+  background-color: #0e2238;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar.expand {
+  width: 260px;
+  min-width: 260px;
+}
+
+.toggle-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.sidebar-logo {
+  margin: auto 0;
+}
+
+.sidebar-logo a {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+  display: none;
+}
+
+.sidebar-nav {
+  padding: 2rem 0;
+  flex: 1 1 auto;
+}
+
+a.sidebar-link {
+  padding: 0.625rem 1.625rem;
+  color: #fff;
+  display: block;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+}
+
+a.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+  border-left: 3px solid #ffc700;
+}
+
+.sidebar-item {
+  position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  background-color: #0e2238;
+  padding: 0;
+  min-width: 15rem;
+  display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
+  display: block;
+  max-height: 15em;
+  width: 100%;
+  opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+  border: solid;
+  border-width: 0 0.075rem 0.075rem 0;
+  content: "";
+  display: inline-block;
+  padding: 2px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  transform: rotate(-135deg);
+  transition: all 0.2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+  transform: rotate(45deg);
+  transition: all 0.2s ease-out;
+}
